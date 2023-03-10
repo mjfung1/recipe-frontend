@@ -15,7 +15,7 @@ function App() {
     <div className="App">
       <Router>
         <Navbar />
-        <Routes className="middle-container">
+        <Routes >
           <Route path="/" element={<Home />} />
           <Route path="/auth/login" element={<Login />} />
           <Route path="/auth/register" element={<Register />} />

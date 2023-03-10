@@ -55,7 +55,7 @@ export const CreateRecipe = () => {
   return (
     <div className="registration-form w-100">
       <h2 className="text-center mb-4">Create Recipe</h2>
-      <form className="rounded" onSubmit={handleSubmit} autoComplete="none">
+      <form className="create-recipe-form" onSubmit={handleSubmit} autoComplete="none">
         <div className="form-icon">
           <span>
             <img
@@ -92,6 +92,7 @@ export const CreateRecipe = () => {
               id="ingredients"
               value={ingredient}
               autoFocus
+              placeholder="Ingredient"
               onChange={(e) => handleIngredientsChange(e, idx)}
             />
           ))}
@@ -140,7 +141,7 @@ export const CreateRecipe = () => {
             id="cookingTime"
             name="cookingTime"
             onChange={handleChange}
-            placeholder="cookingTime"
+            placeholder="Cooking Time"
           />
         </div>
 

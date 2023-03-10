@@ -58,6 +58,10 @@ input {
     justify-content: center;
 }
 
+.personal-links {
+    align-self: center;
+}
+
 .navbar img{
     width: 40px;
     height: 40px;
@@ -156,4 +160,8 @@ p {
     display: inline-block;
     padding-bottom: 10px;
     font-size: 18px;
+}
+
+.create-recipe-form {
+    border-radius: 30px;
 }

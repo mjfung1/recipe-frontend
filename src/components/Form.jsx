@@ -34,7 +34,7 @@ export const Form = ({
   };
 
   return (
-    <div className="registration-form">
+    <div className="registration-form w-100">
       <h2 className="text-center">{label}</h2>
       <form onSubmit={onSubmit} autoComplete="none">
         <div className="form-icon">

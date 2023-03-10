@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, redirect } from "react-router-dom";
 import { useCookies } from "react-cookie";
 import { useNavigate } from "react-router-dom";
 
@@ -9,7 +9,7 @@ export const Navbar = () => {
   const logout = () => {
     setCookies("access_token", "");
     localStorage.removeItem("userID");
-    navigate("/auth");
+    navigate("/");
   };
 
   return (
@@ -25,7 +25,7 @@ export const Navbar = () => {
               alt="Logo"
               className="d-inline-block align-text-top"
             ></img>
-            Grandma's Recipe
+            Gee-mas
           </a>
           <button
             className="navbar-toggler"
@@ -43,9 +43,6 @@ export const Navbar = () => {
               <Link className="nav-link active" aria-current="page" to="/">
                 Home
               </Link>
-              <Link className="nav-link" to="/create-recipe">
-                Create Recipe
-              </Link>
               {!cookies.access_token ? (
                 <>
                   <Link className="nav-link" to="/auth/login">
@@ -57,14 +54,35 @@ export const Navbar = () => {
                 </>
               ) : (
                 <>
+                  <Link className="nav-link" to="/create-recipe">
+                    Create Recipe
+                  </Link>
                   <Link className="nav-link" to="/saved-recipes">
                     Saved Recipes
                   </Link>
-                  <Link className="nav-link" onClick={logout}>
+                  <button
+                    className="btn text-white"
+                    style={{ textAlign: "left", marginRight: "260px" }}
+                    onClick={logout}
+                  >
                     Logout
-                  </Link>
+                  </button>
                 </>
               )}
+              <div className="personal-links">
+                <Link to="https://github.com/mjfung1" target="_blank">
+                  <i class="devicon-github-original"></i>
+                </Link>
+                <Link
+                  to="https://www.linkedin.com/in/miguel-fung-5084691b5/"
+                  target="_blank"
+                >
+                  <i class="devicon-linkedin-plain"></i>
+                </Link>
+                <Link to="https://mjfung1.github.io/" target="_blank">
+                  Portfolio
+                </Link>
+              </div>
             </div>
           </div>
         </div>
