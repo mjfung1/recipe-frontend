@@ -91,13 +91,13 @@ export const Form = ({
       <div className="social-media">
         <h5>Sign up with social media</h5>
         <div className="social-icons">
-          <a href="#">
+          <a href="#" className="disabled-link">
             <i className="icon-social-facebook" title="Facebook"></i>
           </a>
-          <a href="#">
+          <a href="#" className="disabled-link">
             <i className="icon-social-google" title="Google"></i>
           </a>
-          <a href="#">
+          <a href="#" className="disabled-link">
             <i className="icon-social-twitter" title="Twitter"></i>
           </a>
         </div>
