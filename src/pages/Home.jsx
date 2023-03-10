@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useGetUserID } from "../hooks/useGetUserID";
 import axios from "axios";
 import { useCookies } from "react-cookie";
+import { Card } from "./Card";
 
 export const Home = () => {
   const [recipes, setRecipes] = useState([]);
@@ -66,27 +67,12 @@ export const Home = () => {
 
   return (
     <div>
-      <h2>Recipes</h2>
-      <ul>
+      <h1 className="text-center mb-4">Recipes</h1>
+      <div className="recipes-container">
         {recipes.map((recipe) => (
-          <li key={recipe._id}>
-            <div>
-                <h2>{recipe.name}</h2>
-                <button 
-                    onClick={() => saveRecipe(recipe._id)}
-                    disabled={isRecipeSaved(recipe._id)}
-                >
-                {isRecipeSaved(recipe._id) ? "Saved" : "Save"}
-                </button>
-            </div>
-            <div className="instructionsgh">
-                <p>{recipe.instructions}</p>
-            </div>
-            <img src={recipe.imageUrl} alt={recipe.name} />
-            <p>Cooking Time: {recipe.cookingTime} (minutes)</p>
-          </li>
+          <Card key={recipe._id} recipe={recipe} isRecipeSaved={isRecipeSaved} saveRecipe={saveRecipe} route="home" />
         ))}
-      </ul>
+      </div>
     </div>
   );
 };

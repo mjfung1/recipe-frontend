@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import { useGetUserID } from "../hooks/useGetUserID";
 import axios from "axios";
+import { Card } from "./Card";
 
-export const SavedRecipes = () => {
+export const SavedRecipes = ({ recipe, isRecipeSaved, saveRecipe, route }) => {
   const [savedRecipes, setSavedRecipes] = useState([]);
 
   const userID = useGetUserID();
@@ -23,26 +24,20 @@ export const SavedRecipes = () => {
     fetchSavedRecipe();
   }, []);
 
-
-
   return (
     <div>
-      <h2>Saved Recipes</h2>
-      <ul>
+      <h2 className="text-center mb-4">Saved Recipes</h2>
+      <div className="recipes-container">
         {savedRecipes.map((recipe) => (
-          <li key={recipe._id}>
-            <div>
-              <h2>{recipe.name}</h2>
-            
-            </div>
-            <div className="instructionsgh">
-              <p>{recipe.instructions}</p>
-            </div>
-            <img src={recipe.imageUrl} alt={recipe.name} />
-            <p>Cooking Time: {recipe.cookingTime} (minutes)</p>
-          </li>
+          <Card
+            key={recipe._id}
+            recipe={recipe}
+            isRecipeSaved={isRecipeSaved}
+            saveRecipe={saveRecipe}
+            route="savedRecipes"
+          />
         ))}
-      </ul>
+      </div>
     </div>
   );
 };
