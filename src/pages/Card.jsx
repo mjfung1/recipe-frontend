@@ -1,7 +1,3 @@
-import { CardDetails } from "./CardDetails";
-
-
-
 
 
 export const Card = ({ recipe, isRecipeSaved, saveRecipe, route }) => {

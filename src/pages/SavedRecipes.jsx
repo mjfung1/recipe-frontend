@@ -6,6 +6,7 @@ import { Loading } from "./Loading";
 
 export const SavedRecipes = ({ recipe, isRecipeSaved, saveRecipe, route }) => {
   const [savedRecipes, setSavedRecipes] = useState([]);
+  const [isLoading, setLoading] = useState(true);
 
   const userID = useGetUserID();
 
@@ -17,27 +18,35 @@ export const SavedRecipes = ({ recipe, isRecipeSaved, saveRecipe, route }) => {
         );
 
         setSavedRecipes(response.data.savedRecipes);
+        setLoading(false);
       } catch (err) {
         console.error(err);
       }
     };
 
-    fetchSavedRecipe();
+    fetchSavedRecipe();0.
+    0
   }, []);
 
   return (
     <div>
       <h2 className="text-center mb-4">Saved Recipes</h2>
       <div className="recipes-container">
-        {savedRecipes.length ? (savedRecipes.map((recipe) => (
-          <Card
-            key={recipe._id}
-            recipe={recipe}
-            isRecipeSaved={isRecipeSaved}
-            saveRecipe={saveRecipe}
-            route="savedRecipes"
-          />
-        ))) : (<Loading />)}
+        {!isLoading ? (savedRecipes.map((recipe) => {
+          
+          if (savedRecipes.length) {
+          return <Card
+                    key={recipe._id}
+                    recipe={recipe}
+                    isRecipeSaved={isRecipeSaved}
+                    saveRecipe={saveRecipe}
+                    route="savedRecipes"
+                  />
+
+          } else {
+            return (<h1>No Saved Recipes</h1>)
+          }
+        })) : (<Loading />)}
       </div>
     </div>
   );

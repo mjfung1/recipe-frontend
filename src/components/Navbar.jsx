@@ -61,7 +61,8 @@ export const Navbar = () => {
                     Saved Recipes
                   </Link>
                   <button
-                    className="btn text-white"
+                    className="btn logout-btn"
+                    
                     onClick={logout}
                   >
                     Logout
