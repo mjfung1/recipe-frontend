@@ -3,6 +3,7 @@ import { useGetUserID } from "../hooks/useGetUserID";
 import axios from "axios";
 import { useCookies } from "react-cookie";
 import { Card } from "./Card";
+import { Loading } from "./Loading";
 
 export const Home = () => {
   const [recipes, setRecipes] = useState([]);
@@ -69,9 +70,9 @@ export const Home = () => {
     <div>
       <h1 className="text-center mb-4">Recipes</h1>
       <div className="recipes-container">
-        {recipes.map((recipe) => (
+        {recipes.length ? (recipes.map((recipe) => (
           <Card key={recipe._id} recipe={recipe} isRecipeSaved={isRecipeSaved} saveRecipe={saveRecipe} route="home" />
-        ))}
+        ))) : (<Loading />)}
       </div>
     </div>
   );

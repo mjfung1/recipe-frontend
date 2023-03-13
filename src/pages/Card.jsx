@@ -1,3 +1,4 @@
+import { CardDetails } from "./CardDetails";
 
 
 
@@ -23,14 +24,67 @@ export const Card = ({ recipe, isRecipeSaved, saveRecipe, route }) => {
             <span>{recipe.cookingTime} mins</span>
           </p>
         </>
+        <button
+          className="btn btn-primary btn-large"
+          data-bs-toggle="modal"
+          data-bs-target="#exampleModal"
+        >
+          More Details
+        </button>
+
+        <div
+          className="modal fade"
+          id="exampleModal"
+          tabIndex="-1"
+          aria-labelledby="exampleModalLabel"
+          aria-hidden="true"
+        >
+          <div className="modal-dialog" style={{ width: "48rem" }}>
+            <div className="modal-content">
+              <div className="card">
+                <img src={recipe.imageUrl} className="card-img-top" alt="..." />
+                <div className="card-body">
+                  <h5 className="card-title">{recipe.name}</h5>{" "}
+                  <p className="time">
+                    <img
+                      src="/images/timer.png"
+                      alt="Logo"
+                      className="d-inline-block align-text-top card-timer-img"
+                    ></img>
+                    <span>{recipe.cookingTime} mins</span>
+                  </p>
+                  
+                </div>
+                <ul className="list-group list-group-flush">
+                  {recipe.ingredients.map((ingredient) => {
+                    return <li className="list-group-item">{ingredient}</li>;
+                  })}
+                </ul>
+                <div className="card-body">
+                  <h5 className="card-text mx-3 my-2">{recipe.instructions}</h5>
+                </div> 
+              </div>
+              <div className="modal-footer">
+                <button
+                  type="button"
+                  className="btn btn-secondary"
+                  data-bs-dismiss="modal"
+                >
+                  Close
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
         {route === "home" && (
           <button
             onClick={() => saveRecipe(recipe._id)}
             disabled={isRecipeSaved(recipe._id)}
             className={
               isRecipeSaved(recipe._id)
-                ? "btn btn-secondary btn-large"
-                : "btn btn-danger btn-large"
+                ? "btn btn-secondary btn-large mx-2"
+                : "btn btn-danger btn-large mx-2"
             }
           >
             {isRecipeSaved(recipe._id) ? "Saved" : "Save"}

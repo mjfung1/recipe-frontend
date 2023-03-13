@@ -54,32 +54,34 @@ export const Navbar = () => {
                 </>
               ) : (
                 <>
-                  <Link className="nav-link" to="/create-recipe">
+                  <Link className="nav-link text-nowrap" to="/create-recipe">
                     Create Recipe
                   </Link>
-                  <Link className="nav-link" to="/saved-recipes">
+                  <Link className="nav-link text-nowrap" to="/saved-recipes">
                     Saved Recipes
                   </Link>
                   <button
                     className="btn text-white"
-                    style={{ textAlign: "left", marginRight: "260px" }}
                     onClick={logout}
                   >
                     Logout
                   </button>
                 </>
               )}
-              <div className="personal-links">
+              <div className="personal-links ml-auto position-absolute end-0">
                 <Link to="https://github.com/mjfung1" target="_blank">
-                  <i class="devicon-github-original"></i>
+                  <i className="devicon-github-original"></i>
                 </Link>
                 <Link
                   to="https://www.linkedin.com/in/miguel-fung-5084691b5/"
                   target="_blank"
                 >
-                  <i class="devicon-linkedin-plain"></i>
+                  <i className="devicon-linkedin-plain"></i>
                 </Link>
-                <Link to="https://mjfung1.github.io/" target="_blank">
+                <Link
+                  to="https://github.com/mjfung1/recipe-frontend"
+                  target="_blank"
+                >
                   Portfolio
                 </Link>
               </div>

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useGetUserID } from "../hooks/useGetUserID";
 import axios from "axios";
 import { Card } from "./Card";
+import { Loading } from "./Loading";
 
 export const SavedRecipes = ({ recipe, isRecipeSaved, saveRecipe, route }) => {
   const [savedRecipes, setSavedRecipes] = useState([]);
@@ -28,7 +29,7 @@ export const SavedRecipes = ({ recipe, isRecipeSaved, saveRecipe, route }) => {
     <div>
       <h2 className="text-center mb-4">Saved Recipes</h2>
       <div className="recipes-container">
-        {savedRecipes.map((recipe) => (
+        {savedRecipes.length ? (savedRecipes.map((recipe) => (
           <Card
             key={recipe._id}
             recipe={recipe}
@@ -36,7 +37,7 @@ export const SavedRecipes = ({ recipe, isRecipeSaved, saveRecipe, route }) => {
             saveRecipe={saveRecipe}
             route="savedRecipes"
           />
-        ))}
+        ))) : (<Loading />)}
       </div>
     </div>
   );
