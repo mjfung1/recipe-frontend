@@ -60,17 +60,16 @@ export const Navbar = () => {
                   <Link className="nav-link text-nowrap" to="/saved-recipes">
                     Saved Recipes
                   </Link>
-                  <button
-                    className="btn logout-btn"
-                    
-                    onClick={logout}
-                  >
+                  <button className="btn logout-btn" onClick={logout}>
                     Logout
                   </button>
                 </>
               )}
               <div className="personal-links ml-auto position-absolute end-0">
-                <Link to="https://github.com/mjfung1" target="_blank">
+                <Link
+                  to="https://github.com/mjfung1/recipe-frontend"
+                  target="_blank"
+                >
                   <i className="devicon-github-original"></i>
                 </Link>
                 <Link
