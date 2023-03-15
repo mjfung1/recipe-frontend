@@ -9,7 +9,7 @@ export const Card = ({ recipe, isRecipeSaved, saveRecipe, route }) => {
         alt={recipe.name}
       />
       <div className="card-body">
-        <>
+        <div className="card-title-container">
           <h4 className="card-title">{recipe.name}</h4>
           <p className="time">
             <img
@@ -19,15 +19,15 @@ export const Card = ({ recipe, isRecipeSaved, saveRecipe, route }) => {
             ></img>
             <span>{recipe.cookingTime} mins</span>
           </p>
-        </>
+        </div>
         <button
-          className="btn btn-primary btn-large"
+          className="btn btn-primary btn-large more-details-btn"
           data-bs-toggle="modal"
           data-bs-target="#exampleModal"
         >
           More Details
         </button>
-
+        
         <div
           className="modal fade"
           id="exampleModal"
@@ -49,7 +49,6 @@ export const Card = ({ recipe, isRecipeSaved, saveRecipe, route }) => {
                     ></img>
                     <span>{recipe.cookingTime} mins</span>
                   </p>
-                  
                 </div>
                 <ul className="list-group list-group-flush">
                   {recipe.ingredients.map((ingredient) => {
@@ -57,13 +56,13 @@ export const Card = ({ recipe, isRecipeSaved, saveRecipe, route }) => {
                   })}
                 </ul>
                 <div className="card-body">
-                  <h5 className="card-text mx-3 my-2">{recipe.instructions}</h5>
-                </div> 
+                  <h6 className="card-text mx-3 my-2">{recipe.instructions}</h6>
+                </div>
               </div>
               <div className="modal-footer">
                 <button
                   type="button"
-                  className="btn btn-secondary"
+                  className="btn btn-danger"
                   data-bs-dismiss="modal"
                 >
                   Close
@@ -72,7 +71,6 @@ export const Card = ({ recipe, isRecipeSaved, saveRecipe, route }) => {
             </div>
           </div>
         </div>
-
         {route === "home" && (
           <button
             onClick={() => saveRecipe(recipe._id)}

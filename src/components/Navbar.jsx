@@ -19,7 +19,7 @@ export const Navbar = () => {
         data-bs-theme="dark"
       >
         <div className="container-fluid">
-          <a className="navbar-brand mr-auto" href="#">
+          <a className="navbar-brand mr-auto" href="#" style={{pointerEvents:"none"}}>
             <img
               src="/favicon/grandma-512x512.png"
               alt="Logo"
@@ -40,7 +40,7 @@ export const Navbar = () => {
           </button>
           <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div className="navbar-nav">
-              <Link className="nav-link active" aria-current="page" to="/">
+              <Link className="nav-link" aria-current="page" to="/">
                 Home
               </Link>
               {!cookies.access_token ? (
@@ -60,7 +60,7 @@ export const Navbar = () => {
                   <Link className="nav-link text-nowrap" to="/saved-recipes">
                     Saved Recipes
                   </Link>
-                  <button className="btn logout-btn" onClick={logout}>
+                  <button className="nav-link btn logout-btn" onClick={logout}>
                     Logout
                   </button>
                 </>

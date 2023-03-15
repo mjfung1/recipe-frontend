@@ -62,6 +62,24 @@ input {
 
 .personal-links {
     align-self: center;
+    
+}
+
+.nav-link {
+    transition: all 0.35s ease-in-out;
+}
+
+.nav-link:hover {
+    color: red;
+}
+
+.personal-links a {
+    transition: all 0.35s ease-in-out;
+}
+
+
+.personal-links a:hover {
+    color: red;
 }
 
 .navbar img{
@@ -178,6 +196,12 @@ p {
     }
 }
 
+.grandma-loader {
+    width: 180px;
+    height: 180px;
+    object-fit: contain;
+}
+
 .loader__dot {
     animation: 1s blink infinite
 }
@@ -192,4 +216,17 @@ p {
 
 .logout-btn{
     color: rgb(178, 181, 183);
+}
+
+.more-details-btn {
+    background-color: #343c44;
+    transition: all 0.35s ease-in-out;
+}
+
+.more-details-btn:hover {
+    background-color: #6e7275;
+}
+
+.card-title-container {
+    height: 130px;
 }
